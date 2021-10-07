@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -23,7 +24,7 @@ public class ProdutoModel {
 	@NotBlank
 	private String nomeProduto;
 	
-	@NotBlank
+	
 	private double preco;
 	
 	@ManyToOne

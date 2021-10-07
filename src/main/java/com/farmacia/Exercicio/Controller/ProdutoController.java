@@ -28,7 +28,7 @@ public class ProdutoController {
 	@Autowired
 	private ProdutoRepository repositorio;
 	
-	@GetMapping
+	@GetMapping("/todes")
 	public ResponseEntity<List<ProdutoModel>> GetAll() {
 		if (repositorio.findAll().isEmpty()) {
 			return ResponseEntity.status(204).build();
@@ -37,12 +37,12 @@ public class ProdutoController {
 		}
 	}
 	
-	@PostMapping("/atualizar")
+	@PostMapping("/salvar")
 	public ResponseEntity<ProdutoModel> salvar(@Valid @RequestBody ProdutoModel novoProduto) {
         return ResponseEntity.status(201).body(repositorio.save(novoProduto));
    }
 	
-	@PutMapping("/salvar")
+	@PutMapping("/atualizar")
 	public ResponseEntity<ProdutoModel> atualizar(@Valid @RequestBody ProdutoModel novoProduto) {
 		return ResponseEntity.status(201).body(repositorio.save(novoProduto));
 	}
