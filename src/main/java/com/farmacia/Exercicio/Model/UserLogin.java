@@ -2,6 +2,8 @@ package com.farmacia.Exercicio.Model;
 
 public class UserLogin {
 
+	private long Id;
+	
 	private String nome;
 
 	private String usuario;
@@ -9,6 +11,16 @@ public class UserLogin {
 	private String senha;
 
 	private String token;
+
+	
+	
+	public long getId() {
+		return Id;
+	}
+
+	public void setId(long id) {
+		Id = id;
+	}
 
 	public String getNome() {
 		return nome;

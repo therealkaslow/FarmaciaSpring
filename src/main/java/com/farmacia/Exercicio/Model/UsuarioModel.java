@@ -39,12 +39,9 @@ public class UsuarioModel {
 	@Size(min = 5, max = 50)
 	private String senhaUsuario;
 
-	
-	
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<ProdutoModel> produto;
-
 
 	public long getIdUsuario() {
 		return idUsuario;
