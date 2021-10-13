@@ -10,5 +10,7 @@ import com.farmacia.Exercicio.Model.UsuarioModel;
 @Repository
 public interface UsuarioRepository extends JpaRepository<UsuarioModel, Long> {
 
-	public Optional<UsuarioModel> findByNomeUsuario(String usuario);
+	public Optional<UsuarioModel> findByNomeUsuario(String nomeUsuario);
+	
+	public Optional<UsuarioModel> findByEmailUsuario(String emailUsuario);
 }
