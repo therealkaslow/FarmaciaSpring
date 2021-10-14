@@ -85,6 +85,14 @@ public class UsuarioController {
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 
+	/*@PostMapping("/cadastrar")
+	public ResponseEntity<Object> salvar(@Valid @RequestBody UsuarioModel usuario) {
+		return usuarioService.CadastrarUsuario(usuario).map(resp -> ResponseEntity.status(201).body(resp))
+				.orElseThrow(() -> {
+					throw new ResponseStatusException(HttpStatus.BAD_REQUEST,
+							"Email existente, cadastre outro email!.");
+				});
+				}*/
 	@PostMapping("/cadastrar")
 	public ResponseEntity<Object> salvar(@Valid @RequestBody UsuarioModel usuario) {
 		return usuarioService.CadastrarUsuario(usuario).map(resp -> ResponseEntity.status(201).body(resp))
@@ -94,4 +102,5 @@ public class UsuarioController {
 				});
 
 	}
-}
+	
+ }
