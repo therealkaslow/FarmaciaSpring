@@ -5,16 +5,11 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-
-import org.springframework.web.bind.annotation.PostMapping;
-
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -22,48 +17,45 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.farmacia.Exercicio.Model.CategoriaModel;
-import com.farmacia.Exercicio.Repository.CategoriaRepository;
+import com.farmacia.Exercicio.Model.ProdutoModel;
+import com.farmacia.Exercicio.Repository.ProdutoRepository;
 
-@RestController	
-@RequestMapping("/api/v1/categoria")
+@RestController
+@RequestMapping("/api/v1/produto")
 @CrossOrigin("*")
+public class ProdutoController {
 
-public class CategoriaController {
-
-	private @Autowired CategoriaRepository repositorio;
-
+	@Autowired
+	private ProdutoRepository repositorio;
+	
 	@GetMapping("/todes")
-	public ResponseEntity<List<CategoriaModel>> getAll() {
+	public ResponseEntity<List<ProdutoModel>> GetAll() {
 		if (repositorio.findAll().isEmpty()) {
 			return ResponseEntity.status(204).build();
 		} else {
-	        return ResponseEntity.status(200).body(repositorio.findAll());
-	       
+			return ResponseEntity.status(200).body(repositorio.findAll());
 		}
 	}
-
+	
 	@PostMapping("/salvar")
-	public ResponseEntity<CategoriaModel> salvar(@Valid @RequestBody CategoriaModel novoCategoria) {
-		return ResponseEntity.status(201).body(repositorio.save(novoCategoria));
-	}
+	public ResponseEntity<ProdutoModel> salvar(@Valid @RequestBody ProdutoModel novoProduto) {
+        return ResponseEntity.status(201).body(repositorio.save(novoProduto));
+   }
 	
 	@PutMapping("/atualizar")
-	public ResponseEntity<CategoriaModel> atualizar(@Valid @RequestBody CategoriaModel novoCategoria) {
-		return ResponseEntity.status(201).body(repositorio.save(novoCategoria));
+	public ResponseEntity<ProdutoModel> atualizar(@Valid @RequestBody ProdutoModel novoProduto) {
+		return ResponseEntity.status(201).body(repositorio.save(novoProduto));
 	}
 	
-	@DeleteMapping("/deletar/{id_categoria}")
-	public ResponseEntity<CategoriaModel> deletar(@PathVariable(value = "id_categoria") Long idCategoria){
-		Optional<CategoriaModel> objetoOptional = repositorio.findById(idCategoria);
+	@DeleteMapping("/deletar/{id_produto}")
+	public ResponseEntity<ProdutoModel> deletar(@PathVariable(value = "id_produto") Long idProduto) {
+		Optional<ProdutoModel> objetoOptional = repositorio.findById(idProduto);
 		if (objetoOptional.isPresent()) {
-			repositorio.deleteById(idCategoria);
+			repositorio.deleteById(idProduto);
 			return ResponseEntity.status(204).build();
-		} else {
+		}
+		else {
 			return ResponseEntity.status(400).build();
 		}
 	}
-	
-
-	
-}
+	}
