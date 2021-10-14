@@ -3,17 +3,17 @@ package com.farmacia.Exercicio.Model;
 public class UserLogin {
 
 	private long Id;
-	
+
 	private String nome;
 
-	private String usuario;
+	private String sobrenome;
+
+	private String email;
 
 	private String senha;
 
 	private String token;
 
-	
-	
 	public long getId() {
 		return Id;
 	}
@@ -30,12 +30,20 @@ public class UserLogin {
 		this.nome = nome;
 	}
 
-	public String getUsuario() {
-		return usuario;
+	public String getSobrenome() {
+		return sobrenome;
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public void setSobrenome(String sobrenome) {
+		this.sobrenome = sobrenome;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public String getSenha() {
