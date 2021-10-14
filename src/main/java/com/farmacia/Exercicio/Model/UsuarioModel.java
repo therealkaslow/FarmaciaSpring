@@ -27,21 +27,21 @@ public class UsuarioModel {
 	
 	
 	@NotBlank
-	@Size(min = 5, max = 50)
+	//@Size(min = 5, max = 50)
 	private String nomeUsuario;
 
 	@NotBlank
-	@Size(min = 5, max = 50)
+	//@Size(min = 5, max = 50)
 	private String sobrenomeUsuario;
 
 	@ApiModelProperty(example = "email@email.com.br")
 	@NotBlank(message = "O atributo Email é Obrigatório!")
-	@Email(message = "O atributo Email deve ser um email válido!")
-	@Size(min = 5, max = 50)
+	//@Email(message = "O atributo Email deve ser um email válido!")
+	//@Size(min = 5, max = 50)
 	private String emailUsuario;
 
 	@NotBlank
-	@Size(min = 5, max = 50)
+	//@Size(min = 5, max = 50)
 	private String senhaUsuario;
 
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
